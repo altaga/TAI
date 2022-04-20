@@ -22,7 +22,7 @@ El conteo de gente en cada una de las estaciones se realiza en tiempo real media
 
 # System's Architecture:
 
-
+<img src="./Images/Tiger.drawio.png">
 
 # Usecase:
 
@@ -76,5 +76,7 @@ Toda esta informacion esta disponible en tiempo real en nuestra pagina web. Al h
 
 WEBPAGE: https://main.d2n5hct7dn6ny.amplifyapp.com/
 
-# How it's built:
+# AI Analysis:
+
+El analisis de la Jetson nano se hace mediante el modelo de [YoloV4](https://pjreddie.com/darknet/yolo/), esta red neuronal esta optimizada para su uso con la Jetson Nano. El codigo fuente
 
