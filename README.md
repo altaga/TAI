@@ -24,6 +24,13 @@ El conteo de gente en cada una de las estaciones se realiza en tiempo real media
 
 <img src="./Images/Tiger.drawio.png">
 
+- El sistema primero requiere que haya una entrada de video continua hacia la jetson nano 
+- El conteo de personas se hace a travez de la red neuronal YoloV4 en la jetson.
+- A travez del TigerGraph Python SDK mandamos los datos del conteo de pasajeros a nuestra base de datos.
+- Desde la RestAPI de TigerGraph buscabamos consumir los datos almacenados, pero debido a el bloqueo de CORS, tuvimos que hacer un bypass atravez de Amazon API Gateway.
+- Ya en la pagina web desplegamos los datos como un mapa interactivo.
+- El despliegue de la pagina web se realiza leyendo el codigo fuente desde un repositorio hacia el servicio de despliegue de AWS Amplify.
+
 # Usecase:
 
 En este caso se utilizo de ejemplo para nuestro proyetco el sistema de Subway de la ciudad de mexico.
