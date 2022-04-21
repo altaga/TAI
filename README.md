@@ -24,54 +24,54 @@ The people count in each of the stations is done in real time through our AIoT d
 
 <img src="./Images/Tiger.drawio.png">
 
-- El sistema primero requiere que haya una entrada de video continua hacia la jetson nano 
-- El conteo de personas se hace a travez de la red neuronal YoloV4 en la jetson.
-- A travez del TigerGraph Python SDK mandamos los datos del conteo de pasajeros a nuestra base de datos.
-- Desde la RestAPI de TigerGraph buscabamos consumir los datos almacenados, pero debido a el bloqueo de CORS, tuvimos que hacer un bypass atravez de Amazon API Gateway.
-- Ya en la pagina web desplegamos los datos como un mapa interactivo.
-- El despliegue de la pagina web se realiza leyendo el codigo fuente desde un repositorio hacia el servicio de despliegue de AWS Amplify.
+- The system first requires that there is continuous video input to the jetson nano
+- People counting is done through the YoloV4 neural network in the jetson.
+- Through the TigerGraph Python SDK we send the passenger count data to our database.
+- From the TigerGraph RestAPI we wanted to consume the stored data, but due to the CORS block, we had to bypass it through the Amazon API Gateway.
+- On the website we display the data as an interactive map.
+- The deployment of the web page is done by reading the source code from a repository to the AWS Amplify deployment service.
 
 # Usecase:
 
-En este caso se utilizo de ejemplo para nuestro proyetco el sistema de Subway de la ciudad de mexico.
+In this case, the Mexico City Subway system is used as an example for our project.
 
 <img src="./Images/subway.png">
 
-En especifico la linea 2, la cual podemos ver remarcada en el siquiente esquema.
+Specifically line 2, which we can see highlighted in the following diagram.
 
 <img src="./Images/subwayLine2.png">
 
-a su vez como se puede ver en la imagen es una de las mas importantes en la ciudad, debido a su conrurrencia con las demas.
+In turn, as can be seen in the image, it is one of the most important in the city, due to its concurrence with the others.
 
 <img src="./Images/subwayLine2cut.png">
 
 # Graphs:
 
-Debido a que las DB graficas tienen como valor real las interacciones entre sus Vertex y Edges, creamos el siguiente esquema basico.
+Due to the fact that the graphical DB have as real value the interactions between their Vertex and Edges, we create the following basic scheme.
 
 <img src="./Images/base.png">
 
-Una vez pobrada la DB con datos reales de el Subway de la ciudad de mexico, obtuvimos los siguientes resultados.
+Once the DB was populated with real data from the Mexico City Subway, we obtained the following results.
 
-- La cantidad de pasajeros segun el horario de funcionamiento del subway en una estacion.
+- The number of passengers according to the operating hours of the subway in a station.
 
 <img src="./Images/Morning.png">
 
-- O inclusive ver las personas que usan toda la linea del metro en un momento determinado.
+- Or even see the people who use the entire subway line at a given time.
 
 <img src="./Images/Day.png">
 
-- La cantidad de pasajeros que cada una de las estaciones comparte entre si, lo cual nos indica que estaciones suelen tener mas pasajeros que bajen o que suban.
+- The number of passengers that each of the stations share with each other, which tells us which stations usually have more passengers getting off or getting on.
 
 <img src="./Images/SubwayPath.png">
 
-- Aqui un ejemplo de los pasajeros que pasan de una estacion a otra.
+- Here is an example of passengers passing from one station to another.
 
 <img src="./Images/Delta.png">
 
-Ademas al saber la cantidad de pasajeros que la linea comparte entre si, podemos extrapolar el riesgo de usar una estacion en concreto debido a la densidad de pasajeros. 
+In addition to knowing the number of passengers that the line shares with each other, we can extrapolate the risk of using a particular station due to the density of passengers.
 
-La clasificacion de el riesgo es High, Med and Low.
+The risk classification is High, Med and Low.
 
 - High Risk:
 <img src="./Images/high.png">
@@ -79,13 +79,13 @@ La clasificacion de el riesgo es High, Med and Low.
 - Low Risk:
 <img src="./Images/LowRisk.png">
 
-Toda esta informacion esta disponible en tiempo real en nuestra pagina web. Al hacer clic en cualquiera de la estaciones de la Linea 2.
+All this information is available in real time on our website. Clicking on any of the Line 2 stations.
 
 WEBPAGE: https://main.d2n5hct7dn6ny.amplifyapp.com/
 
 # Loading Jobs:
 
-Para Poder subir los datos desde la Jetson con el Python SDK se crearon los siguientes loading jobs.
+In order to upload the data from Jetson with the Python SDK, the following loading jobs were created.
 
 - Add New Day:
 
@@ -129,13 +129,13 @@ Para Poder subir los datos desde la Jetson con el Python SDK se crearon los sigu
 
 # AI Analysis:
 
-El analisis de la Jetson nano se hace mediante el modelo de [YoloV4](https://pjreddie.com/darknet/yolo/), esta red neuronal esta optimizada para su uso con la Jetson Nano, el codigo esta en la siguiente carpeta [Main Code](./Jetson%20Nano/Main%20Code/). 
+The analysis of the Jetson nano is done using the model of [YoloV4](https://pjreddie.com/darknet/yolo/), this neural network is optimized for use with the Jetson Nano, the code is in the following folder [Main Code](./Jetson%20Nano/Main%20Code/). 
 
 <img src="./Images/gif.gif">
 
-Aqui algunas estadisticas del uso de la Jetson.
+Here some statistics of the use of the Jetson.
 
 <img src="./Images/stats.png">
 
-Pueden probar el codigo de reconocimiento de personas en el siguiente notebook.
+You can try the people recognition code on the following notebook.
 [Notebook](./Jetson%20Nano/Test/YoloV4.ipynb)
