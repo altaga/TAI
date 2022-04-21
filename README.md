@@ -78,5 +78,13 @@ WEBPAGE: https://main.d2n5hct7dn6ny.amplifyapp.com/
 
 # AI Analysis:
 
-El analisis de la Jetson nano se hace mediante el modelo de [YoloV4](https://pjreddie.com/darknet/yolo/), esta red neuronal esta optimizada para su uso con la Jetson Nano. El codigo fuente
+El analisis de la Jetson nano se hace mediante el modelo de [YoloV4](https://pjreddie.com/darknet/yolo/), esta red neuronal esta optimizada para su uso con la Jetson Nano, el codigo esta en la siguiente carpeta [Main Code](./Jetson%20Nano/Main%20Code/). 
 
+<img src="./Images/gif.gif">
+
+Aqui algunas estadisticas del uso de la Jetson.
+
+<img src="./Images/stats.png">
+
+Pueden probar el codigo de reconocimiento de personas en el siguiente notebook.
+[Notebook](./Jetson%20Nano/Test/YoloV4.ipynb)
