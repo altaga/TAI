@@ -76,6 +76,50 @@ Toda esta informacion esta disponible en tiempo real en nuestra pagina web. Al h
 
 WEBPAGE: https://main.d2n5hct7dn6ny.amplifyapp.com/
 
+# Loading Jobs:
+
+Para Poder subir los datos desde la Jetson con el Python SDK se crearon los siguientes loading jobs.
+
+- Add New Day:
+
+        USE GRAPH Subway
+        BEGIN
+        CREATE LOADING JOB load_day FOR GRAPH Subway {
+        DEFINE FILENAME MyDataSource;
+        LOAD MyDataSource TO VERTEX Day VALUES($0, $1, $2) USING SEPARATOR=",", HEADER="true", EOL="\\n";
+        }
+        END
+
+- Add Passengers:
+
+        USE GRAPH Subway
+        BEGIN
+        CREATE LOADING JOB load_n_p FOR GRAPH Subway {
+        DEFINE FILENAME MyDataSource;
+        LOAD MyDataSource TO EDGE Passengers VALUES($0, $1, $2) USING SEPARATOR=",", HEADER="true", EOL="\\n";
+        }
+        END
+
+- Add Delta Passengers:
+
+        USE GRAPH Subway
+        BEGIN
+        CREATE LOADING JOB load_delta FOR GRAPH Subway {
+        DEFINE FILENAME MyDataSource;
+        LOAD MyDataSource TO EDGE Delta_Passengers VALUES($0, $1, $2) USING SEPARATOR=",", HEADER="true", EOL="\\n";
+        }
+        END
+
+- Add Risk Level:
+
+        USE GRAPH Subway
+        BEGIN
+        CREATE LOADING JOB load_level FOR GRAPH Subway {
+        DEFINE FILENAME MyDataSource;
+        LOAD MyDataSource TO EDGE Level VALUES($0, $1, $2) USING SEPARATOR=",", HEADER="true", EOL="\\n";
+        }
+        END
+
 # AI Analysis:
 
 El analisis de la Jetson nano se hace mediante el modelo de [YoloV4](https://pjreddie.com/darknet/yolo/), esta red neuronal esta optimizada para su uso con la Jetson Nano, el codigo esta en la siguiente carpeta [Main Code](./Jetson%20Nano/Main%20Code/). 
