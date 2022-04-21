@@ -15,8 +15,8 @@ import csv
 # Connection parameters
 hostName = "https://altaga.i.tgcloud.io"
 userName = "client"
-password = "Password0128"
-authToken = 'p5td5gnko5abdetcd5d97umfjffpn2va'
+password = "pass"
+authToken = 'token'
 conn = tg.TigerGraphConnection(host=hostName, graphname="Subway", username=userName, password=password, apiToken=authToken)
 
 # AI parameters
