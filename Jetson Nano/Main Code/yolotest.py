@@ -1,11 +1,9 @@
 from ctypes import *
 import random
-import os
 from turtle import window_height
 import cv2
 import time
 import darknet
-import argparse
 from threading import Thread, enumerate
 from queue import Queue
 import http.client
@@ -126,11 +124,12 @@ def drawing(frame_queue, detections_queue, fps_queue):
     cap.release()
     cv2.destroyAllWindows()
 
+
 def deleteRisk(level):
     conn = http.client.HTTPSConnection("altaga.i.tgcloud.io", 9000)
     payload = ''
     headers = {
-    'Authorization': 'Bearer p5td5gnko5abdetcd5d97umfjffpn2va'
+    'Authorization': 'Bearer token'
     }
     conn.request("DELETE", "/graph/edges/Risk/"+level+"/Level/Station/BELLAS%20ARTES", payload, headers)
     res = conn.getresponse()
@@ -149,6 +148,19 @@ def addLevel(From,To):
   posts_file = 'temp.csv'
   results = conn.uploadFile(posts_file, fileTag='MyDataSource', jobName='load_level')
   print("Risk Added")
+
+def addPassengerEdge(From,To,Number,Job):
+  header = ['From','To','Passengers']
+  data = [From, To, Number]
+
+  with open('temp.csv', 'w', encoding='UTF8') as f:
+      writer = csv.writer(f)
+      writer.writerow(header)
+      writer.writerow(data)
+
+  posts_file = 'temp.csv'
+  results = conn.uploadFile(posts_file, fileTag='MyDataSource', jobName=Job)
+  print(results)
 
 if __name__ == '__main__':
     frame_queue = Queue()
