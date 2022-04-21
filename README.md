@@ -8,15 +8,15 @@
 
 WEBPAGE: https://main.d2n5hct7dn6ny.amplifyapp.com/
 
-TAI es una plataforma basada en una Scalable Graph Database la cual mediante IoT y Inteligencia artificial busca mejorar la gestion de pasajeros en el subway y disminuir el riesgo de contagio de enfermedades como el COVID-19.
+TAI is a platform based on a Scalable Graph Database which, through IoT and artificial intelligence, seeks to improve passenger management in the subway and reduce the risk of contagion of diseases such as COVID-19.
 
 <img src="./Images/subway2.png">
 
-Con esta aplicacion podemos obtener indices de riesgo por densidad de pasajeros en cada estacion y a su vez gestionar mejor las rutas de los usuarios por el subway. Tan solo al hacer clic en cualquiera de las estaciones obtendremos informacion a tiempo real de la misma.
+With this application we can obtain risk indices for passenger density at each station and, in turn, better manage user routes through the subway. Just by clicking on any of the stations we will obtain real-time information about it.
 
 <img src="./Images/info.png">
 
-El conteo de gente en cada una de las estaciones se realiza en tiempo real mediante nuestro dispositivo de AIoT y mandando los datos a TigerGraph gracias al Python SDK.
+The people count in each of the stations is done in real time through our AIoT device and sending the data to TigerGraph thanks to the Python SDK.
 
 <img src="./Images/gif.gif">
 
